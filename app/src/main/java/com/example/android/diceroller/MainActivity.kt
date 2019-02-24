@@ -10,6 +10,9 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
+    // la variable sera initialisée avant d'être appelé
+    lateinit var diceImage: ImageView;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +27,8 @@ class MainActivity : AppCompatActivity() {
             //  obtenir un nombre aléatoire compris entre 1 et 6
             rollDice();
         }
+
+        diceImage = findViewById(R.id.dice_image);
     }
 
     // Choisir la bonne ressource pouvant être dessinée en fonction de la valeur de randomInt
@@ -37,7 +42,6 @@ class MainActivity : AppCompatActivity() {
             5 -> R.drawable.dice_5
             else -> R.drawable.dice_6
         }
-        val diceImage : ImageView = findViewById(R.id.dice_image);
         // affecter la ressource drawableResource d’en haut à diceImage
         diceImage.setImageResource(drawableResource);
     }
